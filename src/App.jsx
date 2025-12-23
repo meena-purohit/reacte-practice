@@ -1,16 +1,17 @@
-import { useState } from "react";
-import Login,{Profile,Setting, UserKey} from "./UserComponent";
-function App(){
-  return (
-    <div>
-      <Login />
-      <Profile />
-      <Setting />
-      <h1>{UserKey}</h1>
-    <h1>hello</h1>
-    <h1>code step by step</h1>
-    </div>
-  );
-}
+ 
+ function App() {
+  const userName="Meena Purohit";
+  let x = 10;
+  let y = 60;
 
-export default App;
+return (
+  <>
+   <h1>{userName}</h1>
+    <h1>{10+60+10}</h1>
+    <h2>{x*y}</h2>
+    <button onClick={()=>alert("hello")}>click</button>
+  </>
+);
+ }
+
+ export default App;
