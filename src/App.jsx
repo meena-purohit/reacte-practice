@@ -1,4 +1,6 @@
+import { useState } from "react";
 import College from "./College";
+import Student from "./Student";
 import User from "./User";
 
  
@@ -19,21 +21,26 @@ let userObject2 = {
 
   }
   let userObject3 = {
-     name:"Peater",
-     age:20,
-     email:"peater@test.com"
+     name:"bosh",
+     age:24,
+     email:"bosh@test.com"
 
   }
-  let collegeNames = ["IET","DU","ITI","NIT","NET"]
+  // let collegeNames = ["IET","DU","ITI","NIT","NET"]
+  const [student,setStudent]= useState()
   return(
     <div>
       <h1>Props in React Js</h1>
       {/* <User name={userName} age={age} email={email}/> */}
-      <College name={collegeNames[0]}/>
+      {student && <Student name={student}/>}
+      <button onClick={()=>setStudent("bhaskar")}>update student name</button>
+
+      {/* <College name={collegeNames[0]}/>
       <College name={collegeNames[1]}/>
       <College name={collegeNames[2]}/>
       <College name={collegeNames[3]}/>
-      <College name={collegeNames[4]}/>
+      <College name={collegeNames[4]}/> */}
+
 
 
 
