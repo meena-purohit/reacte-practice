@@ -1,3 +1,4 @@
+import User from "./User";
 function App() {
   const userName=['Anil','sam','peter','bruch'];
   const collegeData=['ITE','IIT','NIT'];
@@ -29,68 +30,16 @@ const userData=[
 ]
   return (
     <div>
-      <h1>Loop in JSX with Map Function</h1>
-      <table border='1'>
-      <thead>
-        <tr>
-          <td>Id</td>
-          <td>Name</td>
-          <td>Email</td>
-          <td>Age</td>
-        </tr>
-      </thead>
-      <tbody>
-      {userData.map((user)=>(
-        <tr key={user.id}>
-          <td>{user.id}</td>
-          <td>{user.name}</td>
-          <td>{user.email}</td>
-          <td>{user.age}</td>
-        </tr>
-      ))}
-     </tbody>
-      </table>
-     
-      <h1>Dummy Data</h1>
-      <table border='1'>
-        <thead>
-          <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Age</td>
-            <td>Email</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Anil</td>
-            <td>29</td>
-            <td>anil@test.com</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Anil</td>
-            <td>29</td>
-            <td>anil@test.com</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Anil</td>
-            <td>29</td>
-            <td>anil@test.com</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Anil</td>
-            <td>29</td>
-            <td>anil@test.com</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
+      <h1>Reuse component in loop</h1>
+      {
+        userData.map((user)=>(
+          <div key={user.id}>
+            <User data={user}/>
+          </div>
+        ))
+      }
+      
+       </div>
   )
 }
-
-export default App;
+  export default App;
