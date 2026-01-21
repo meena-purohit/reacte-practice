@@ -1,30 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Counter from "./Counter";
 
 function App() {
 
-  const [counter,setCounter] = useState(0);
-  const [data,setData] = useState(0);
-
-  useEffect(()=>{
-    //  callOnce();  
-     counterFunction();
-
-  },[counter])
-  function callOnce(){
-    console.log("callOnce function called");
-  }
-
+  const [count,setCount] = useState(0)
   
-   function counterFunction() {
-    console.log("counterFunction",counter)
-   }
  
   return(
 
     <div>
-      <h1>useEffect Hook</h1>
-      <button onClick={()=>setCounter(counter+1)}>counter {counter}</button>
-      <button onClick={()=>setData(data+1)}>Data {data}</button>
+      {/* <h1>Handel Props Side Effect with useEffect in component </h1> */}
+      <button onClick={()=>setCount(count+1)}>Count</button>
+     <Counter count={count}/>
     </div>
 
   )
