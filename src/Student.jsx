@@ -1,9 +1,13 @@
-function Student({name}) {
+const Student=({student})=> {
     return (
         <div>
-            <hr />
-            <h1>student name:{name}</h1>
-            <hr />
+            {
+                    student.map((student,index) => (
+                     <ul key={index}>
+                        <li>Name: {student.name}</li>
+                     </ul>    
+                    ))
+                }
         </div>
     )
     
