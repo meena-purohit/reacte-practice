@@ -4,14 +4,20 @@ import Counter from "./Counter";
 function App() {
 
   const [count,setCount] = useState(0)
-  
+  const [data,setData] = useState(0)
+  const [display,setDisplay] = useState(true)
  
   return(
 
     <div>
-      {/* <h1>Handel Props Side Effect with useEffect in component </h1> */}
+      {/* <h1>Life cycle in React Js</h1> */}
+      {
+        display? <Counter count={count} data={data}/>:null
+      }
       <button onClick={()=>setCount(count+1)}>Count</button>
-     <Counter count={count}/>
+       <button onClick={()=>setData(data+1)}>Data</button>
+       <button onClick={()=>setDisplay(!display)}>Toggle</button>
+     
     </div>
 
   )
