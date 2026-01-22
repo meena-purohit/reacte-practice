@@ -275,3 +275,94 @@
 // }
 
 // export default Counter;
+
+// import { useState } from "react";
+// import Counter from "./Counter";
+
+// function App() {
+
+//   const [count,setCount] = useState(0)
+//   const [data,setData] = useState(0)
+//   const [display,setDisplay] = useState(true)
+ 
+//   return(
+
+//     <div>
+//       {/* <h1>Life cycle in React Js</h1> */}
+//       {
+//         display? <Counter count={count} data={data}/>:null
+//       }
+//       <button onClick={()=>setCount(count+1)}>Count</button>
+//        <button onClick={()=>setData(data+1)}>Data</button>
+//        <button onClick={()=>setDisplay(!display)}>Toggle</button>
+     
+//     </div>
+
+//   )
+// }
+
+// export default App;
+// import { useEffect } from "react";
+
+// const Counter =({count,data})=>{
+
+
+
+//     useEffect(()=>{
+//      console.log("mount phas only");
+//     },[]);
+
+//      useEffect(()=>{
+//      console.log("update phase only");
+//     },[count]);
+
+//     useEffect(()=>{
+//         return()=>{
+//             console.log("unmounting phase only");
+            
+//         }
+//     },[])
+
+//     return(
+//         <div>
+//             <h1>Counter Value{count}</h1>
+//              <h1>Data Value{data}</h1>
+//         </div>
+
+//     )                
+// }
+
+// export default Counter;
+// import myImage from "./assets/test-external-2519778_1920.jpg"
+// function App() {
+
+//   const cardStyle = {border:"2px solid #cccccc28",
+//           width:"200px",
+//           boxShadow: "1px 2px 3px 0px #cccccc57",
+//           margin: "10px"}
+//   return(
+//     <div>
+//       <h1 style={{color:"red"}}>Inline Style in React</h1>
+//       <div style={{display:"flex",flexWrap:"wrap"}}>
+//       <div style={cardStyle}>
+//         <img style={{width:"200px"}} src={myImage} alt="not found"/>
+//          <div>
+//       <h4>Meena Purohit</h4>
+//       <p>Software Developer</p>
+//      </div>
+//      </div>
+//      <div style={cardStyle}>
+//         <img style={{width:"200px"}} src={myImage} alt="not found"/>
+//          <div>
+//       <h4>Meena Purohit</h4>
+//       <p>Software Developer</p>
+//      </div>
+//      </div>
+
+//      </div>
+//      </div>
+    
+//   )
+// }
+
+// export default App;

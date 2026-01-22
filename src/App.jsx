@@ -1,25 +1,32 @@
-import { useState } from "react";
-import Counter from "./Counter";
-
+import myImage from "./assets/test-external-2519778_1920.jpg"
 function App() {
 
-  const [count,setCount] = useState(0)
-  const [data,setData] = useState(0)
-  const [display,setDisplay] = useState(true)
- 
+  const cardStyle = {border:"2px solid #cccccc28",
+          width:"200px",
+          boxShadow: "1px 2px 3px 0px #cccccc57",
+          margin: "10px"}
   return(
-
     <div>
-      {/* <h1>Life cycle in React Js</h1> */}
-      {
-        display? <Counter count={count} data={data}/>:null
-      }
-      <button onClick={()=>setCount(count+1)}>Count</button>
-       <button onClick={()=>setData(data+1)}>Data</button>
-       <button onClick={()=>setDisplay(!display)}>Toggle</button>
-     
-    </div>
+      <h1 style={{color:"red"}}>Inline Style in React</h1>
+      <div style={{display:"flex",flexWrap:"wrap"}}>
+      <div style={cardStyle}>
+        <img style={{width:"200px"}} src={myImage} alt="not found"/>
+         <div>
+      <h4>Meena Purohit</h4>
+      <p>Software Developer</p>
+     </div>
+     </div>
+     <div style={cardStyle}>
+        <img style={{width:"200px"}} src={myImage} alt="not found"/>
+         <div>
+      <h4>Meena Purohit</h4>
+      <p>Software Developer</p>
+     </div>
+     </div>
 
+     </div>
+     </div>
+    
   )
 }
 
