@@ -1,0 +1,18 @@
+.heading{
+    color: red;
+}
+
+img{
+   width: 200px;
+}
+
+.container{
+    width: 200px;
+    border: 2px solid #ddd;
+    margin: 10px;
+    box-shadow: 2px 2px 2px 2px #ddd;
+}
+
+.textWrap {
+    padding: 10px;
+}

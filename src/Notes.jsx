@@ -585,3 +585,55 @@
 // }
 
 // export default App;
+
+// import UserProfile from "./UserProfile";
+// import "./css/style.css"
+
+
+
+// function App() {
+//   return (
+//     <div>
+//       <h1 className="heading">Style with CSS Module in React Js</h1>
+//       <div style={{display:"flex",flexWrap:"wrap"}}>
+//         <UserProfile/>
+//         <UserProfile/>
+//         <UserProfile/>
+//         <UserProfile/>
+//         <UserProfile/>
+//         <UserProfile/>
+//         <UserProfile/>
+//         <UserProfile/>
+//         <UserProfile/>
+//         <UserProfile/>
+//         <UserProfile/>
+//         <UserProfile/>
+//         <UserProfile/>
+//         <UserProfile/>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// import myImage from "./assets/test-external-2519778_1920.jpg";
+// import style from "./css/userprofile.module.css"
+
+
+// function UserProfile() {
+//     return(
+//         <div>
+//             {/* <h1 className={style.heading}>Modular Card</h1> */}
+//             <div className={style.container}>
+//                 <img className={style.width} src={myImage} />
+//                 <div className={style.textWrap}>
+//                     <h4>Meena Purohit</h4>
+//                     <p>Software Developer</p>
+//                 </div>
+//             </div>
+//         </div>
+//     )
+// }
+
+// export default UserProfile;
