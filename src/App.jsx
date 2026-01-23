@@ -1,35 +1,46 @@
-import styled from "styled-components";
+import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+// import { Alert } from 'bootstrap';
 
 function App() {
+  
 
-  const Heading = styled.h1`
-  color: red;
-  border: 1px solid green;
-  border-Radius: 5px;
-  margin: 20px;
-  padding: 20px;`
+  return (
+    <div>
+       <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Link</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Another action
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+      <h1> React Bootstrap</h1>
+      
+      {/* <Button variant='danger'>okay</Button> */}
 
-  const Stylbtn = styled.button`
-  border: 2px solid black;
-  border-radius:5px;
-  height:40px;
-  width:130px;
-  margin:20px;`
-
-  return(
-      <div>
-        <h1>Styled Component with React Js</h1>
-        <Heading>Hello Heading</Heading>
-         <Heading>Hello Heading</Heading>
-          <Heading>Hello Heading</Heading>
-           <Heading>Hello Heading</Heading>
-            <Heading>Hello Heading</Heading>
-            <Stylbtn>signin</Stylbtn>
-            <Stylbtn>signup</Stylbtn>
-            <Stylbtn>exit</Stylbtn>
-            <Stylbtn>back</Stylbtn>
-
-      </div>
+      {/* <Alert variant='success'>Hello user</Alert> */}
+    </div>
   )
 }
 
