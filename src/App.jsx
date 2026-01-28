@@ -1,42 +1,58 @@
-import { useRef } from "react"; 
+import { useRef } from "react";
 
 function App() {
 
-  const inputRef = useRef(null)
-  const h1Ref = useRef(null)
+    const userRef = useRef();
+    const passwordRef = useRef();
 
+    const handleForm=(event)=>{
+        event.preventDefault();
+        const user=document.querySelector("#user").value;
+        const password= document.querySelector("#password").value;
+        console.log(user,password);
+        }
 
-  const inputHandler=()=>{
-    console.log(inputRef);
-    inputRef.current.style.color='red';
-    inputRef.current.focus();
-    inputRef.current.placeholder="Enter password";
-    inputRef.current.value="123"; 
-  }
+        const handleFormRef=(event)=>{
+            event.preventDefault()
+            const user = userRef.current.value 
+            const password= passwordRef.current.value 
+             console.log("handleFormRef",user,password)
+        }
 
-  const toggleHandler=()=>{
+       
 
-      if( inputRef.current.style.display!='none'){
-        inputRef.current.style.display='none'
-      } else{
-        inputRef.current.style.display='inline'
-      }
-    }
-    const h1handler=()=>{
-      h1Ref.current.style.color="green"
-    }
+        
+      
+    return(
+        <div>
+            <h1>Uncontrolled Component</h1>
+            <form action="" method="post" onSubmit={handleForm}>
+            <input type="text" id="user" placeholder="Enter user name" />
+            <br />
+            <br />
+            <input type="password" id="password" placeholder="Enter user password" />
+            <br />
+            <br />
+            <button>
+                Submit
+            </button>
+            </form>
 
-  return(
-
-    <div>
-      <h1>useRef in React Js</h1>
-       <button onClick={toggleHandler}>Toggle</button>
-      <input ref={inputRef} type="text" placeholder="Enter your text" />
-      <button onClick={inputHandler}>Focus in input</button>
-      <h1 ref={h1Ref}>Code Step by Step</h1>
-      <button onClick={h1handler}>handle</button>
-    </div>
-  )
+            <hr />
+            <h1>Uncontrolled Component with Ref</h1>
+            <form action="" method="post" onSubmit={handleFormRef}>
+            <input type="text" ref={userRef} placeholder="Enter user name" />
+            <br />
+            <br />
+            <input type="password" ref={passwordRef}  placeholder="Enter user password" />
+            <br />
+            <br />
+            <button>
+                Submit with Ref
+            </button>
+            </form>
+        </div>
+    )
 }
 
 export default App;
