@@ -1035,3 +1035,49 @@
 
 // export default App;
 
+// import { useState } from "react";
+// import AddUser from "./AddUser";
+// import DisplayUser from "./DisplayUser";
+
+// function App() {
+
+//     const[user,setUser] = useState('');
+//     return(
+
+//         <div>
+//             {/* <h1>Lifting State Up React Js</h1> */}
+//             <AddUser setUser={setUser}/>
+//             <DisplayUser user={user}/>
+           
+//         </div>
+//     )
+// }
+
+// export default App;
+
+
+
+// function AddUser({setUser}) {
+    
+    
+
+//     return(
+//         <div>
+//             <h2>Add User</h2>
+//             <input type="text"onChange={(event)=>setUser(event.target.value)} placeholder="Enter user name" />
+//              <hr />
+//         </div>
+//     )
+// }
+
+// export default AddUser;
+
+// function DisplayUser({user}) {
+//     return(
+//         <div>
+//            <h3>{user}</h3>
+//         </div>
+//     )
+// }
+
+// export default DisplayUser;
