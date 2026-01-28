@@ -1,26 +1,26 @@
-import { useState, useTransition } from "react";
+// let guest= 0
 
 function App() {
-    const [pending,startTransition]= useTransition();
-
- 
    
-    const handleButton=()=>{
-        startTransition(async()=>{
-         await new Promise(res=>setTimeout(res,2000))
-    })
-        
-    }
-
-    return (
-        <div>
-            <h1>useTransition Hook in React Js 19</h1>
-           {
-            pending?
-            <img style={{width:"100px"}} src="https://gifdb.com/images/high/minimalist-black-loading-screen-yrjqekpw1qvj8e6o.gif" alt=""/>:null
-           }
-            <button disabled={pending} onClick={handleButton}>Click</button>
-        </div>
-    )
+  return (
+    <div>
+      <h1>Keeping Components Pure</h1>
+      <Cup guest={1} />
+      <Cup guest={2} />
+      <Cup guest={3} />
+      <Cup guest={4} />
+      <Cup guest={5} />
+    </div>
+  );
 }
+
+const Cup = ({guest}) => {
+    //  let guest = 0
+  return (
+    <h1>
+      we have {guest} guest and we have to make {guest} cup of tea
+    </h1>
+  );
+};
+
 export default App;
