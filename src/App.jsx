@@ -1,45 +1,41 @@
-import { useState } from "react";
+import { useActionState } from "react";
 
 function App() {
-  const [data, setData] = useState(["sam", "peter", "bruce", "tony"]);
-  const [dataDetails, setDataDetails] = useState([
-    { name: "meena", age: "25" },
-    { name: "sam", age: "20" },
-    { name: "pater", age: "21" },
-  ]);
-  const handelUser = (name) => {
-    data[data.length - 1] = name;
-    console.log(data);
-    setData([...data]);
-  };
-  const handleAge=(age)=>{
-   dataDetails[dataDetails.length-1].age=age
-   console.log(dataDetails)
-   setDataDetails([...dataDetails])
-   
+  const handleSubmit =async(previousDta,formData)=>{
+    let name= formData.get('name');
+    let password = formData.get('password');
+    await new Promise(res=>setTimeout(res,2000))
+    // console.log("handleSubmit called" ,name,password);
+    if(name && password) {
+      return {message:"Data Submited",name,password}
+    }else{
+      return{error:"Failed to Submit. Enter proper data",name,password}
+    }
   }
-  return (
+ 
+  const [data,action,pending]= useActionState(handleSubmit,undefined)
+  // console.log(data);
+  return(
     <div>
-      <h1>Updating Array in State</h1>
-      <input
-        type="text"
-        placeholder="Enter last user name"
-        onChange={(event) => handelUser(event.target.value)}
-      />
-      {data.map((item, index) => (
-        <h3 key={index}>{item}</h3>
-      ))}
-
-      <hr />
-      <input type="text" placeholder="Enter last user age"
-      onChange={(event)=>handleAge(event.target.value)} />
-      {
-        dataDetails.map((item,index)=>(
-          <h4 key={index}>{item.name},{item.age}</h4>
-        ))
-      }
+      <h1>useActionState Hook in React Js</h1>
+      <form action={action}>
+        <input defaultValue={data?.name} type="text" placeholder="Enter name" name="name"/>
+        <br /><br />
+         <input defaultValue={data?.password} type="password" placeholder="Enter password" name="password"/>
+         <br /><br />
+         <button disabled={pending}>Submit data</button>
+         <br />
+         {
+          data?.error && <span style={{color:"red"}}>{data.error}</span>
+         }
+          {
+          data?.message && <span style={{color:"green"}}>{data.message}</span>
+         }
+      </form>
+      <h3> Name:{data?.name}</h3>
+      <h3>Password:{data?.password}</h3>
     </div>
-  );
+  )
 }
 
 export default App;
