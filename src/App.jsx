@@ -1,23 +1,27 @@
-import { Fragment } from "react";
+import { useState } from "react";
+import useToggle from "./useToggle";
 
-export default function App() {
+function App() {
+  const [value , toggleValue]=useToggle(true);
+
+  const [data, setData]=useToggle(true)
+  // console.log("val----",value);
+  
   return(
-   
-   <>
-    <Data></Data>
-     <Data></Data>
-      <Data></Data>
-       <Data></Data>
-        <Data></Data>
-  </>
-   
+    <div>
+      <button onClick={toggleValue}>Toggle Heading</button>
+      <button onClick={()=>toggleValue(false)}>Hide Heading</button>
+      <button onClick={()=>toggleValue(true)}>Show Heading</button>
+      {
+        value? <h1>Make Custom Hook</h1>:null
+      }
+      <hr />
+      
+      <button onClick={setData}>Toggle Heading</button>
+      <button onClick={()=>setData(false)}>Hide Heading</button>
+      <button onClick={()=>setData(true)}>Show Heading</button>
+      {data? <h1>Second Heading</h1>:null}
+    </div>
   )
 }
-
-function Data() {
-  return(
-   <>
-       <h1>Fragment In React Js</h1>
-   </>
-  )
-}
+export default App;
