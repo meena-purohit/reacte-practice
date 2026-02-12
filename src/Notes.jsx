@@ -1081,3 +1081,250 @@
 // }
 
 // export default DisplayUser;
+
+// import { useState } from "react";
+
+
+// function App() {
+
+//   const [data, setData] = useState({
+//     name:"Meena purohit",
+//     address:{
+//         city:"Delhi",
+//         country:"India"
+//     }
+//   })
+//   const handleName = (val)=>{
+//     data.name=val
+
+//     console.log(data);
+//     setData({...data})
+// }
+// const handleCity=(city)=>{
+//   data.address.city=city
+//   setData({...data,address:{...data.address,city}})
+// }
+//     return(
+
+//         <div>
+//             <h1>Updating Object in State React Js</h1>
+            
+//             <input type="text" placeholder="update name" 
+//             onChange={(event)=>handleName(event.target.value)}/>
+
+//              <input type="text" placeholder="update city" 
+//             onChange={(event)=>handleCity(event.target.value)}/>
+//             <h2>Name:{data.name}</h2>
+//             <h2>City:{data.address.city}</h2>
+//             <h2>Country:{data.address.country}</h2>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+// import { useState } from "react";
+
+// function App() {
+//   const [data, setData] = useState(["sam", "peter", "bruce", "tony"]);
+//   const [dataDetails, setDataDetails] = useState([
+//     { name: "meena", age: "25" },
+//     { name: "sam", age: "20" },
+//     { name: "pater", age: "21" },
+//   ]);
+//   const handelUser = (name) => {
+//     data[data.length - 1] = name;
+//     console.log(data);
+//     setData([...data]);
+//   };
+//   const handleAge=(age)=>{
+//    dataDetails[dataDetails.length-1].age=age
+//    console.log(dataDetails)
+//    setDataDetails([...dataDetails])
+   
+//   }
+//   return (
+//     <div>
+//       <h1>Updating Array in State</h1>
+//       <input
+//         type="text"
+//         placeholder="Enter last user name"
+//         onChange={(event) => handelUser(event.target.value)}
+//       />
+//       {data.map((item, index) => (
+//         <h3 key={index}>{item}</h3>
+//       ))}
+
+//       <hr />
+//       <input type="text" placeholder="Enter last user age"
+//       onChange={(event)=>handleAge(event.target.value)} />
+//       {
+//         dataDetails.map((item,index)=>(
+//           <h4 key={index}>{item.name},{item.age}</h4>
+//         ))
+//       }
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// import { useActionState } from "react";
+
+// function App() {
+//   const handleSubmit =async(previousDta,formData)=>{
+//     let name= formData.get('name');
+//     let password = formData.get('password');
+//     await new Promise(res=>setTimeout(res,2000))
+//     // console.log("handleSubmit called" ,name,password);
+//     if(name && password) {
+//       return {message:"Data Submited",name,password}
+//     }else{
+//       return{error:"Failed to Submit. Enter proper data",name,password}
+//     }
+//   }
+ 
+//   const [data,action,pending]= useActionState(handleSubmit,undefined)
+//   // console.log(data);
+//   return(
+//     <div>
+//       <h1>useActionState Hook in React Js</h1>
+//       <form action={action}>
+//         <input defaultValue={data?.name} type="text" placeholder="Enter name" name="name"/>
+//         <br /><br />
+//          <input defaultValue={data?.password} type="password" placeholder="Enter password" name="password"/>
+//          <br /><br />
+//          <button disabled={pending}>Submit data</button>
+//          <br />
+//          {
+//           data?.error && <span style={{color:"red"}}>{data.error}</span>
+//          }
+//           {
+//           data?.message && <span style={{color:"green"}}>{data.message}</span>
+//          }
+//       </form>
+//       <h3> Name:{data?.name}</h3>
+//       <h3>Password:{data?.password}</h3>
+//     </div>
+//   )
+// }
+
+// export default App;
+// import { useId } from "react";
+
+// function App () {
+
+  
+//   return(
+//     <div>
+      
+//       <UserForm/>
+//       <hr />
+//       <UserForm/>
+//     </div>
+//   )
+// }
+
+// export default App;
+
+// function UserForm () {
+
+//   const user =useId();
+   
+//   return(
+//     <div>
+//       {/* <h1>useId Hook</h1> */}
+//       <form action="">
+//       <label htmlFor={user+"name"}>Enter User Name</label>
+//       <input id={user+"name"} type="text" placeholder="Enter name" />
+//       <br /><br />
+//        <label htmlFor={user+"password"}>Enter User Password</label>
+//       <input id={user+"password"} type="text" placeholder="Enter password" />
+//       <br /><br />
+//       <label htmlFor={user+"skills"}>Enter User Skills</label>
+//       <input id={user+"skills"} type="text" placeholder="Enter skills" />
+//        <br /><br />
+      
+//       <input id={user+"terms"} type="checkbox" placeholder="Enter name" />
+//        <label htmlFor={user+"terms"}>Terms & Condition</label>
+     
+       
+//       </form>
+//     </div>
+//   )
+// }
+
+// import { Fragment } from "react";
+
+// export default function App() {
+//   return(
+   
+//    <>
+//     <Data></Data>
+//      <Data></Data>
+//       <Data></Data>
+//        <Data></Data>
+//         <Data></Data>
+//   </>
+   
+//   )
+// }
+
+// function Data() {
+//   return(
+//    <>
+//        <h1>Fragment In React Js</h1>
+//    </>
+//   )
+// }
+
+// import { useState } from "react";
+// import useToggle from "./useToggle";
+
+// function App() {
+//   const [value , toggleValue]=useToggle(true);
+
+//   const [data, setData]=useToggle(true)
+//   // console.log("val----",value);
+  
+//   return(
+//     <div>
+//       <button onClick={toggleValue}>Toggle Heading</button>
+//       <button onClick={()=>toggleValue(false)}>Hide Heading</button>
+//       <button onClick={()=>toggleValue(true)}>Show Heading</button>
+//       {
+//         value? <h1>Make Custom Hook</h1>:null
+//       }
+//       <hr />
+      
+//       <button onClick={setData}>Toggle Heading</button>
+//       <button onClick={()=>setData(false)}>Hide Heading</button>
+//       <button onClick={()=>setData(true)}>Show Heading</button>
+//       {data? <h1>Second Heading</h1>:null}
+//     </div>
+//   )
+// }
+// export default App;
+
+// import { useState } from "react"
+
+// const useToggle=(defaultVal)=>{
+//     const [value,setValue ] = useState(defaultVal);
+
+//     function toggleValue(val){
+//         // console.log(val);
+        
+//         if(typeof val!='boolean'){
+//             console.log("if");
+            
+//             setValue(!value)
+//         }else{
+//             console.log("else");
+            
+//             setValue(val)
+//         }
+//     }
+//     return [value,toggleValue];
+// }
+
+// export default useToggle;

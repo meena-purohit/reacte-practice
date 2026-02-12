@@ -1,34 +1,12 @@
-import Student from "./Student";
-
-const College = ({college})=> {
-
+import ClassComponent from "./ClassComponent";
+function College() {
+  return(
+    <div style={{backgroundColor:'orange',padding:10}}>
+      <h1>College Component</h1>
+      <ClassComponent/>
+    </div>
     
-    return(
-        <div style={{
-            backgroundColor: "#ccc",
-            padding: "20px",
-            borderBottom: "2px solid #000",
-            margin: "10px",
-            borderRadius: "10px"
-        }}>
-            <h1>Name: {college.name}</h1>
-            <ul>
-              <li>
-                <h3>City: {college.city}</h3>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <h3>Website: {college.website}</h3>
-              </li>
-              <li>
-                 <Student student={college.student}/>
-         
-              </li>
-            </ul>
-           
-        </div>
-    )
+  )
 }
-
+  
 export default College;
