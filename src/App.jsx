@@ -7,7 +7,8 @@ import NavBar from "./NavBar";
 export default function App() {
   return (
     <div>
-     <NavBar />
+      <NavBar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
