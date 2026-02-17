@@ -12,14 +12,19 @@ import Details from "./Details";
 export default function App() {
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
 
       <Routes>
+        <Route element={<NavBar />}>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="login" element={<Login />} />
+         <Route path="/about" element={<About />} />
+          <Route path="login" element={<Login />} />
+        </Route>
+        
+       
+        
         <Route  path="college" element={<College />}>
-        <Route path="student" element={<Student />}/>
+        <Route index element={<Student />}/>
         <Route  path="departments" element={<Departments />}/>
         <Route  path="details" element={<Details />}/>
         </Route>
