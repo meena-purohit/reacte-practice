@@ -17,8 +17,12 @@ export default function App() {
       <Routes>
         <Route element={<NavBar />}>
         <Route path="/" element={<Home />} />
-         <Route path="/about" element={<About />} />
-          <Route path="login" element={<Login />} />
+        <Route path="in/">
+          <Route path="user/">
+         <Route path="/in/user/about" element={<About />} />
+          <Route path="/in/user/login" element={<Login />} />
+          </Route>
+        </Route>
         </Route>
         
        
@@ -28,8 +32,8 @@ export default function App() {
         <Route  path="departments" element={<Departments />}/>
         <Route  path="details" element={<Details />}/>
         </Route>
-        {/* <Route  path="/*" element={<PageNotFound />}/> */}
-        <Route path="/*" element={<Navigate to='/login' />}/>
+        <Route  path="/*" element={<PageNotFound />}/>
+        {/* <Route path="/*" element={<Navigate to='/login' />}/> */}
       </Routes>
     </div>
   );
