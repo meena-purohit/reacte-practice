@@ -1,45 +1,47 @@
-import { Link, Outlet } from "react-router";
+
+
+import { NavLink, Outlet } from "react-router";
 import "./header.css";
 function NavBar() {
   return (
     <div>
     <div className="header">
       <div>
-        <Link className="link" to='/'>
+        <NavLink className="link" to='/'>
           <h2>Logo</h2>
-        </Link>
+        </NavLink>
       </div>
       <div>
         <ul>
           <li>
-            <Link className="link" to="/">
+            <NavLink className={({isActive})=>isActive?'custom-active link':'link'} to="/">
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="link" to="/in/user/about">
+            <NavLink className="link" to="/in/user/about">
               About
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="link" to="/in/user/login">
+            <NavLink className="link" to="/in/user/login">
               Login
-            </Link>
+            </NavLink>
           </li>
             <li>
-            <Link className="link" to="/college">
+            <NavLink className="link" to="/college">
               College
-            </Link>
+            </NavLink>
           </li>
            <li>
-            <Link className="link" to="/users">
+            <NavLink className="link" to="/users">
               Users
-            </Link>
+            </NavLink>
           </li>
            <li>
-            <Link className="link" to="/users/List">
+            <NavLink className="link" to="/users/List">
               List
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
