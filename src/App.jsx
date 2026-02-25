@@ -19,8 +19,10 @@ export default function App() {
       <Routes>
         <Route element={<NavBar />}>
         <Route path="/" element={<Home />} />
-        <Route path="/users" element={<Users />} />
-        <Route path="/users/:id" element={<UserDetails />} />
+        <Route path="/users/list?" element={<Users />} />
+       
+        <Route path="/users/:id/:name?" element={<UserDetails />} />
+        
 
 
         <Route path="in/">
