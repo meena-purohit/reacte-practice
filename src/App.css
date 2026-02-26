@@ -4,6 +4,7 @@
   border: 1px solid black;
   margin: 0;
   padding: 10px;
+  list-style:none;
 }
 
 .user-list-h {
@@ -14,6 +15,7 @@
   padding: 10px;
   font-size: large;
   font-weight: bolder;
+   list-style:none;
 }
 .nav-list {
   display: flex;
