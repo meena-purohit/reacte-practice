@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function UserList() {
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(false);
    const url = "http://localhost:3000/users";
+   const navigate = useNavigate();
 
   useEffect(() => {
     getUserData();
@@ -29,6 +31,10 @@ export default function UserList() {
 
   }
 
+  const editUser=(id)=>{
+  navigate("/edit/"+id)
+  }
+
   return (
     <div>
       <ul className="user-list-h">
@@ -45,6 +51,7 @@ export default function UserList() {
             <li>{user.email}</li>
             <li>
               <button onClick={()=>deleteUser(user.id)}>Delete</button>
+               <button onClick={()=>editUser(user.id)}>Edit</button>
             </li>
           </ul>
         ))
