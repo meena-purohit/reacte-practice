@@ -1,44 +1,37 @@
-import { useState } from "react";
-import "./App.css"
+import { useActionState } from "react";
+import "./App.css";
 
 export default function App() {
+  const handleLogin = (prevData, formData) => {
+    let name = formData.get("name");
+    let password = formData.get("password");
+    let regex = /^[A-Z0-9]+$/i;
 
-  const [name,setName]= useState('');
-  const [nameErr,setNameErr]= useState();
-
-  const [password,setPassword]= useState('');
-  const [passErr,setPassErr]= useState();
-
-  const handleName=(event)=>{
-    console.log(event.target.value);
-    if(event.target.value.length>5) {
-      setNameErr("Please enter valid username. 5 characters allowed")
-    } else{
-      setNameErr()
+    if (!name || name.length > 5) {
+      return { error: "Name should not emty or Name should not allowed more then 5 charecters",name,password};
+    } else if (!regex.test(password)) {
+      return { error: " Password should be must or Password can Contain only numbers and alphabets",name,password };
+    } else {
+      return { message: "Login done",name,password };
     }
-    
-  }
+  };
 
-   const handlePassword=(event)=>{
-    let rejex = /^[A-Z0-9]+$/i;
-    if(rejex.test(event.target.value)) {
-       setPassErr()
-    } else{
-      setPassErr("Only Numbers and Alphabates allowed")
-    }
-    
-  }
- 
+  const [data, action, pending] = useActionState(handleLogin);
 
   return (
     <div>
-     <input className={nameErr?"error":''} type="text" onChange={handleName} placeholder="enter name" />
-     <span className="red-color">{nameErr && nameErr}</span>
-     <br /><br />
-     <input  className={passErr?"error":''} type="text" onChange={handlePassword} placeholder="enter password" />
-     <span className="red-color">{passErr && passErr}</span>
-     <br /><br />
-     <button disabled={nameErr || passErr}>Login</button>
+      <h1>Validation with useActionState in React</h1>
+      {data?.message && <span style={{color:"green"}}>{data?.message}</span>}
+      {data?.error && <span style={{color:"red"}}>{data?.error}</span>}
+      <form action={action}>
+        <input defaultValue={data?.name} type="text" name="name" placeholder="enter name" />
+        <br />
+        <br />
+        <input defaultValue={data?.password} type="text" name="password" placeholder="enter password" />
+        <br />
+        <br />
+        <button>Login</button>
+      </form>
     </div>
   );
 }
