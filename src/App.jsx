@@ -1,37 +1,44 @@
-import { useActionState } from "react";
-import "./App.css";
+import { useReducer } from "react";
 
-export default function App() {
-  const handleLogin = (prevData, formData) => {
-    let name = formData.get("name");
-    let password = formData.get("password");
-    let regex = /^[A-Z0-9]+$/i;
+const emptyData={
+  name:'',
+  passwoed:'',
+  email:'',
+  city:'',
+  address:''
+}
 
-    if (!name || name.length > 5) {
-      return { error: "Name should not emty or Name should not allowed more then 5 charecters",name,password};
-    } else if (!regex.test(password)) {
-      return { error: " Password should be must or Password can Contain only numbers and alphabets",name,password };
-    } else {
-      return { message: "Login done",name,password };
-    }
-  };
-
-  const [data, action, pending] = useActionState(handleLogin);
-
-  return (
+const reducer = (data,action)=>{
+ return {...data,[action.type]:action.val}
+  
+}
+export default function App () {
+  const [state,dispatch]=useReducer(reducer,emptyData)
+  
+  
+  return(
     <div>
-      <h1>Validation with useActionState in React</h1>
-      {data?.message && <span style={{color:"green"}}>{data?.message}</span>}
-      {data?.error && <span style={{color:"red"}}>{data?.error}</span>}
-      <form action={action}>
-        <input defaultValue={data?.name} type="text" name="name" placeholder="enter name" />
-        <br />
-        <br />
-        <input defaultValue={data?.password} type="text" name="password" placeholder="enter password" />
-        <br />
-        <br />
-        <button>Login</button>
-      </form>
+      <h1>Use Reduser</h1>
+      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'name'})}
+       placeholder="enter name" />
+      <br /><br />
+      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'password'})} placeholder="enter password" />
+      <br /><br />
+      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'email'})} placeholder="enter email" />
+      <br /><br />
+      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'city'})} placeholder="enter city" />
+      <br /><br />
+      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'address'})} placeholder="enter address" />
+      <br /><br />
+     <button onClick={()=>console.log(state)
+     }>Add Details</button>
+     <ul>
+      <li><h4>Name:{state.name}</h4></li>
+       <li><h4>Password:{state.password}</h4></li>
+        <li><h4>Email:{state.email}</h4></li>
+         <li><h4>City:{state.city}</h4></li>
+          <li><h4>Address:{state.address}</h4></li>
+     </ul>
     </div>
-  );
+  )
 }
